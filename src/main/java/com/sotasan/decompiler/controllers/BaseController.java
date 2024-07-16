@@ -6,7 +6,7 @@ import java.awt.*;
 
 public abstract class BaseController<T extends Component> {
 
-    @Getter(AccessLevel.PROTECTED) private T view;
+    @Getter(AccessLevel.PROTECTED) protected T view;
 
     public BaseController(T view) {
         this.view = view;

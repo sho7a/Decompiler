@@ -28,7 +28,7 @@ import java.util.Objects;
 @Getter
 public class WindowView extends JFrame {
 
-    private final FlatSplitPane splitPane;
+    public final FlatSplitPane splitPane;
     @Nullable private JPanel macos;
 
     public WindowView() {

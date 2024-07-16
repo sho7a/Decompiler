@@ -25,7 +25,7 @@ public class FileExit extends FlatMenuItem implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        WindowController.getINSTANCE().dispose();
+        WindowController.INSTANCE.dispose();
     }
 
 }
