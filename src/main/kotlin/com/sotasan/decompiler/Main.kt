@@ -22,9 +22,7 @@ fun main(args: Array<String>) {
     FlatLaf.setPreferredFontFamily(FlatInterFont.FAMILY)
     FlatLaf.registerCustomDefaultsSource("themes")
     FlatDarkLaf.setup()
-
-    val modifier = if (SystemInfo.isMacOS) "meta" else "ctrl"
-    FlatInspector.install("$modifier shift I")
+    FlatInspector.install("${if (SystemInfo.isMacOS) "meta" else "ctrl"} shift I")
 
     WindowController.show()
     if (args.isNotEmpty())
