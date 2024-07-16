@@ -2,6 +2,7 @@ package com.sotasan.decompiler.services;
 
 import com.sotasan.decompiler.models.FileModel;
 import com.sotasan.decompiler.types.ClassType;
+import com.sotasan.decompiler.types.ImageType;
 import com.sotasan.decompiler.types.ManifestType;
 import com.sotasan.decompiler.types.Type;
 import lombok.experimental.UtilityClass;
@@ -13,6 +14,7 @@ public class TypeService {
 
     private static final List<Type> TYPES = List.of(
             new ClassType(),
+            new ImageType(),
             new ManifestType()
     );
 
