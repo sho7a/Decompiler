@@ -3,15 +3,16 @@ package com.sotasan.decompiler.views;
 import com.formdev.flatlaf.extras.components.FlatSplitPane;
 import com.formdev.flatlaf.util.SystemInfo;
 import com.sotasan.decompiler.controllers.StartController;
-import com.sotasan.decompiler.controllers.TreeController;
 import com.sotasan.decompiler.controllers.TabsController;
-import com.sotasan.decompiler.services.LoaderService;
-import com.sotasan.decompiler.services.LanguageService;
+import com.sotasan.decompiler.controllers.TreeController;
 import com.sotasan.decompiler.menus.MenuBar;
+import com.sotasan.decompiler.services.LanguageService;
+import com.sotasan.decompiler.services.LoaderService;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
@@ -29,7 +30,8 @@ import java.util.Objects;
 public class WindowView extends JFrame {
 
     public final FlatSplitPane splitPane;
-    @Nullable private JPanel macos;
+    @Nullable
+    private JPanel macos;
 
     public WindowView() {
         addComponentListener(new WindowComponentAdapter());
