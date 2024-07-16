@@ -3,9 +3,9 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     id("application")
     id("java")
-    id("com.github.johnrengelman.shadow") version("8.1.1")
-    id("io.freefair.lombok") version("8.6")
-    kotlin("jvm") version("2.0.0")
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("io.freefair.lombok") version "8.6"
+    kotlin("jvm") version "2.0.0"
 }
 
 group = "com.sotasan"
@@ -69,5 +69,10 @@ tasks {
     register<Jar>("testJar") {
         archiveFileName = "test.jar"
         from(sourceSets.test.get().output)
+    }
+
+    named<JavaExec>("run") {
+        dependsOn("testJar")
+        args = listOf((named("testJar").get() as Jar).archiveFile.get().asFile.path)
     }
 }
