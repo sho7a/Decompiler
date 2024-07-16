@@ -60,7 +60,7 @@ public class WindowView extends JFrame {
             getRootPane().putClientProperty("apple.awt.transparentTitleBar", true);
             getRootPane().putClientProperty("apple.awt.windowTitleVisible", false);
 
-            Dimension dimension = new Dimension(0, 25);
+            Dimension dimension = new Dimension(0, 30);
             macos = new JPanel();
             macos.setMinimumSize(dimension);
             macos.setPreferredSize(dimension);

@@ -7,7 +7,7 @@ object WindowController : BaseController<WindowView>(WindowView()) {
     fun show() {
         view.isVisible = true
     }
-
+    
     fun activate() {
         view.contentPane = view.splitPane
         view.validate()
