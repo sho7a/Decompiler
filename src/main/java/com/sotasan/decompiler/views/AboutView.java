@@ -36,7 +36,7 @@ public class AboutView extends JDialog {
 
     @SneakyThrows
     public AboutView() {
-        super((JFrame) WindowController.getINSTANCE().getComponent());
+        super((JFrame) WindowController.INSTANCE.getComponent());
         getRootPane().putClientProperty(FlatClientProperties.TITLE_BAR_SHOW_ICON, false);
         setModal(true);
         setResizable(false);

@@ -24,7 +24,7 @@ public class LoaderService {
         CompletableFuture.runAsync(() -> {
 
             if (Taskbar.isTaskbarSupported() && Taskbar.getTaskbar().isSupported(Taskbar.Feature.PROGRESS_STATE_WINDOW))
-                Taskbar.getTaskbar().setWindowProgressState((JFrame) WindowController.getINSTANCE().getComponent(), Taskbar.State.INDETERMINATE);
+                Taskbar.getTaskbar().setWindowProgressState((JFrame) WindowController.INSTANCE.getComponent(), Taskbar.State.INDETERMINATE);
 
             try {
 
@@ -41,7 +41,7 @@ public class LoaderService {
                         packageModel.getChildren().add(new FileModel(jar, entry));
                 }
 
-                WindowController.getINSTANCE().activate();
+                WindowController.INSTANCE.activate();
                 TabsController.getINSTANCE().clearTabs();
                 TreeController.getINSTANCE().setArchive(archive);
 
@@ -50,7 +50,7 @@ public class LoaderService {
             }
 
             if (Taskbar.isTaskbarSupported() && Taskbar.getTaskbar().isSupported(Taskbar.Feature.PROGRESS_STATE_WINDOW))
-                Taskbar.getTaskbar().setWindowProgressState((JFrame) WindowController.getINSTANCE().getComponent(), Taskbar.State.OFF);
+                Taskbar.getTaskbar().setWindowProgressState((JFrame) WindowController.INSTANCE.getComponent(), Taskbar.State.OFF);
 
         });
     }

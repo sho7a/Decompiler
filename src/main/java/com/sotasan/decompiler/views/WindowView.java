@@ -3,15 +3,16 @@ package com.sotasan.decompiler.views;
 import com.formdev.flatlaf.extras.components.FlatSplitPane;
 import com.formdev.flatlaf.util.SystemInfo;
 import com.sotasan.decompiler.controllers.StartController;
-import com.sotasan.decompiler.controllers.TreeController;
 import com.sotasan.decompiler.controllers.TabsController;
-import com.sotasan.decompiler.services.LoaderService;
-import com.sotasan.decompiler.services.LanguageService;
+import com.sotasan.decompiler.controllers.TreeController;
 import com.sotasan.decompiler.menus.MenuBar;
+import com.sotasan.decompiler.services.LanguageService;
+import com.sotasan.decompiler.services.LoaderService;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
@@ -28,8 +29,9 @@ import java.util.Objects;
 @Getter
 public class WindowView extends JFrame {
 
-    private final FlatSplitPane splitPane;
-    @Nullable private JPanel macos;
+    public final FlatSplitPane splitPane;
+    @Nullable
+    private JPanel macos;
 
     public WindowView() {
         addComponentListener(new WindowComponentAdapter());
@@ -60,7 +62,7 @@ public class WindowView extends JFrame {
             getRootPane().putClientProperty("apple.awt.transparentTitleBar", true);
             getRootPane().putClientProperty("apple.awt.windowTitleVisible", false);
 
-            Dimension dimension = new Dimension(0, 25);
+            Dimension dimension = new Dimension(0, 30);
             macos = new JPanel();
             macos.setMinimumSize(dimension);
             macos.setPreferredSize(dimension);

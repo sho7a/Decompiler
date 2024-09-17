@@ -13,7 +13,7 @@ public abstract class BaseModel implements Comparable<BaseModel> {
 
     private final List<BaseModel> children = new ArrayList<>();
     private final String path;
-    private String name;
+    public String name;
     private Image icon;
 
     public BaseModel(String path, boolean directory) {
