@@ -2,12 +2,15 @@ package com.sotasan.decompiler.controllers;
 
 import com.sotasan.decompiler.models.FileModel;
 import com.sotasan.decompiler.types.ClassType;
+import com.sotasan.decompiler.types.ImageType;
 import com.sotasan.decompiler.types.Type;
 import com.sotasan.decompiler.views.TabView;
 import lombok.Getter;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+
+import javax.swing.*;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
@@ -20,12 +23,19 @@ public class TabController extends BaseController<TabView> {
     private final FileModel fileModel;
 
     public TabController(@NotNull FileModel fileModel) {
-        super(new TabView());
+        super(new TabView(fileModel));
         this.fileModel = fileModel;
         getView().setController(this);
     }
 
     public CompletableFuture<Void> updateAsync() {
+
+        if (fileModel.getType() instanceof ImageType) {
+            JScrollPane imageScrollPane = new JScrollPane();
+            getView().setScrollPane(imageScrollPane);
+            return CompletableFuture.completedFuture(null);
+        }
+
         return getTextAsync(fileModel)
                 .thenAccept(s -> {
                     getView().getTextArea().setText(s);
